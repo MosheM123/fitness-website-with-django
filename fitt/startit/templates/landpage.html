@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+
+
+<html>
+<head>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta content="text/html; charset=iso-8859-2" http-equiv="Content-Type">
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+<style>
+
+
+  * {
+  border: 0;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+}
+
+body {
+  background-image: url("/staticfiles/images/a.png");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  font-family: Copperplate, Papyrus, fantasy;
+}
+
+a {
+  color: inherit;
+  font-family: inherit;
+  font-size: inherit;
+  text-decoration: none;
+}
+
+
+/*======================================================
+                          Navbar
+  ======================================================*/
+#navbar {
+  background: black;
+  color: white;
+  position: fixed;
+  top: 0;
+  height: 60px;
+  line-height: 60px;
+  width: 100vw;
+  z-index: 10;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+}
+
+.nav-wrapper {
+  margin: auto;
+  text-align: center;
+  width: 70%;
+} @media(max-width: 768px) {
+    .nav-wrapper {
+      width: 90%;
+    }
+  } @media(max-width: 638px) {
+      .nav-wrapper {
+        width: 100%;
+      }
+    } 
+
+
+.logo {
+  float: left;
+  margin-left: -100px;
+  font-size: 1.5em;
+  height: 30px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+} @media(max-width: 768px) {
+    .logo {
+       margin-left: 25px; 
+    }
+  }
+
+#navbar ul {
+  display: inline-block;
+  list-style: none;
+  margin-left: -65px; 
+  margin-top: -35px;
+
+  transition: transform 0.5s ease-out;
+  -webkit-transition: transform 0.5s ease-out;
+} @media(max-width: 640px) {
+    #navbar ul {
+      display: none;
+    }
+  } @media(orientation: landscape) {
+      #navbar ul {
+        display: inline-block;
+      }
+    }
+
+#navbar li {
+  display: inline-block;
+}
+
+#navbar li a {
+  color: white;
+  display: block;
+  font-size: 0.7em;
+  height: 50px;
+  letter-spacing: 1px;
+  left:260px;
+  position: relative;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: all 0.5s ease;
+  -webkit-transition: all 0.5s ease;
+}
+
+#navbar li a:hover {
+  /* border-bottom: 1px solid rgb(28, 121, 184); */
+  color: rgb(28, 121, 184);
+  transition: all 1s ease;
+  -webkit-transition: all 1s ease;
+}
+
+/* Animated Bottom Line */
+#navbar li a:before, #navbar li a:after {
+  content: '';
+  position: absolute;
+  width: 0%;
+  height: 1px;
+  bottom: -1px;
+  background: rgb(13, 26, 38);
+}
+
+#navbar li a:before {
+  left: 0;
+  transition: 0.5s;
+}
+
+#navbar li a:after {
+  background: rgb(13, 26, 38);
+  right: 0;
+  /* transition: width 0.8s cubic-bezier(0.22, 0.61, 0.36, 1); */
+}
+
+#navbar li a:hover:before {
+  background: rgb(13, 26, 38);
+  width: 100%;
+  transition: width 0.5s cubic-bezier((0.22, 0.61, 0.36, 1));
+}
+
+#navbar li a:hover:after {
+  background: transparent;
+  width: 100%;
+  /* transition: 0s; */
+}
+
+
+
+/*======================================================
+                    Mobile Menu Menu Icon
+  ======================================================*/
+@media(max-width: 640px) {
+  .menuIcon {
+    cursor: pointer;
+    display: block;
+    position: fixed;
+    right: 15px;
+    top: 20px;
+    height: 23px;
+    width: 27px;
+    z-index: 12;
+  }
+
+  /* Icon Bars */
+  .icon-bars {
+    background: rgb(13, 26, 38);
+    position: absolute;
+    left: 1px;
+    top: 45%;
+    height: 2px;
+    width: 20px;
+    -webkit-transition: 0.4s;
+    transition: 0.4s;
+  } 
+
+  .icon-bars::before {
+    background: rgb(13, 26, 38);
+    content: '';
+    position: absolute;
+    left: 0;
+    top: -8px;
+    height: 2px;
+    width: 20px;
+/*     -webkit-transition: top 0.2s ease 0.3s;
+    transition: top 0.2s ease 0.3s; */
+    -webkit-transition: 0.3s width 0.4s;
+    transition: 0.3s width 0.4s;
+  }
+
+  .icon-bars::after {
+    margin-top: 0px;
+    background: rgb(13, 26, 38);
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -8px;
+    height: 2px;
+    width: 20px;
+/*     -webkit-transition: top 0.2s ease 0.3s;
+    transition: top 0.2s ease 0.3s; */
+    -webkit-transition: 0.3s width 0.4s;
+    transition: 0.3s width 0.4s;
+  }
+
+  /* Bars Shadows */
+  .icon-bars.overlay {
+    background: rgb(97, 114, 129);
+    background: rgb(183, 199, 211);
+    width: 20px;
+    animation: middleBar 3s infinite 0.5s;
+    -webkit-animation: middleBar 3s infinite 0.5s;
+  } @keyframes middleBar {
+      0% {width: 0px}
+      50% {width: 20px}
+      100% {width: 0px}
+    } @-webkit-keyframes middleBar {
+        0% {width: 0px}
+        50% {width: 20px}
+        100% {width: 0px}
+      }
+
+  .icon-bars.overlay::before {
+    background: rgb(97, 114, 129);
+    background: rgb(183, 199, 211);
+    width: 10px;
+    animation: topBar 3s infinite 0.2s;
+    -webkit-animation: topBar 3s infinite 0s;
+  } @keyframes topBar {
+      0% {width: 0px}
+      50% {width: 10px}
+      100% {width: 0px}
+    } @-webkit-keyframes topBar {
+        0% {width: 0px}
+        50% {width: 10px}
+        100% {width: 0px}
+      }
+
+  .icon-bars.overlay::after {
+    background: rgb(97, 114, 129);
+    background: rgb(183, 199, 211);
+    width: 15px;
+    animation: bottomBar 3s infinite 1s;
+    -webkit-animation: bottomBar 3s infinite 1s;
+  } @keyframes bottomBar {
+      0% {width: 0px}
+      50% {width: 15px}
+      100% {width: 0px}
+    } @-webkit-keyframes bottomBar {
+        0% {width: 0px}
+        50% {width: 15px}
+        100% {width: 0px}
+      }
+
+
+  /* Toggle Menu Icon */
+  .menuIcon.toggle .icon-bars {
+    top: 5px;
+    transform: translate3d(0, 5px, 0) rotate(135deg);
+    transition-delay: 0.1s;
+    transition: transform 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+
+  .menuIcon.toggle .icon-bars::before {
+    top: 0;
+    transition-delay: 0.1s;
+    opacity: 0;
+  }
+
+  .menuIcon.toggle .icon-bars::after {
+    top: 10px;
+    transform: translate3d(0, -10px, 0) rotate(-270deg);
+    transition-delay: 0.1s;
+    transition: transform 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+
+  .menuIcon.toggle .icon-bars.overlay {
+    width: 20px;
+    opacity: 0;
+    -webkit-transition: all 0s ease 0s;
+    transition: all 0s ease 0s;
+  }
+}
+
+
+/*======================================================
+                   Responsive Mobile Menu 
+  ======================================================*/
+.overlay-menu {
+  background: lightblue;
+  color: rgb(13, 26, 38);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding-right: 15px;
+  transform: translateX(-100%);
+  width: 100vw;
+  height: 100vh;
+  -webkit-transition: transform 0.2s ease-out;
+  transition: transform 0.2s ease-out;
+}
+
+.overlay-menu ul, .overlay-menu li {
+  display: block;
+  position: relative;
+}
+
+.overlay-menu li a {
+  display: block;
+  font-size: 1.8em;
+  letter-spacing: 4px;
+/*   opacity: 0; */
+  padding: 10px 0;
+  text-align: right;
+  text-transform: uppercase;
+  -webkit-transition: color 0.3s ease;
+  transition: color 0.3s ease;
+/*   -webkit-transition: 0.2s opacity 0.2s ease-out;
+  transition: 0.2s opacity 0.2s ease-out; */
+}
+
+.overlay-menu li a:hover,
+.overlay-menu li a:active {
+  color: rgb(28, 121, 184);
+  -webkit-transition: color 0.3s ease;
+  transition: color 0.3s ease;
+}
+.aaa {
+
+  background-color: #010101;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 30px;
+  color:white;
+  font-family: 'Open Sans', sans-serif;
+  word-spacing: 4px;
+}
+ul li{
+  padding : 0 30px 0 10px;
+}
+
+.ert{
+    bottom: 430px;
+    position: relative;
+}
+</style>
+</head>
+
+
+  <nav id="navbar" class="">
+    <div class="nav-wrapper">
+      <!-- Navbar Logo -->
+      <div class="logo">
+        <!-- Logo Placeholder for Illustration -->
+      </div>
+  
+      <!-- Navbar Links -->
+      <a style="margin-left: -290px; font-family: Copperplate, Papyrus, fantasy; font-size: 25px;" href="#home">Fit Nisim</a>
+      <ul>
+        <li><a href=''>Home</a></li><!--
+     --><li><a href='ptraining'>Programs</a></li><!--
+     --><li><a href="#go_down">Contact</a></li><!--
+     --><li><a href="about">About me</a></li>
+      </ul>
+    </div>
+  </nav>
+  
+  
+  <!-- Menu Icon -->
+  <div class="menuIcon">
+    <span class="icon icon-bars"></span>
+    <span class="icon icon-bars overlay"></span>
+  </div>
+  
+  
+
+
+
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta content="text/html; charset=iso-8859-2" http-equiv="Content-Type">
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+<style>
+
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  display: inline;
+  margin: 27px;
+}
+.button {
+  margin: 0;
+  position: absolute;
+  top: 45%;
+  left: 45%;
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  font-family: Copperplate, Papyrus, fantasy;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+
+.button1 {
+  background-color: white; 
+  color: black; 
+  border: 2px solid #060806;
+}
+
+.button1:hover {
+  background-color: #0d0e0d;
+  color: white;
+}
+
+.navy{
+  position: absolute;
+  top: 100%;
+}
+
+.x {
+  left:50px;
+  position: absolute;
+  top:1px;
+  color: black;
+  margin: 50px;
+  width: 300px;
+  background-color: white;
+    font-size: 45px;
+    font-family:monospace;
+}
+
+.y{
+  position: absolute;
+  color: black;
+  left: 500px;
+  top:100px;
+  margin: 50px;
+  width: 500px;
+  background-color: white;
+  font-size: 30px;
+  font-family:monospace;
+}
+
+
+.et{
+  width: 100%;
+  height:50px;
+  position: absolute;
+  top:450px;
+  font-family:monospace;
+  background-color: black;
+  color:white;
+}
+
+.dd{
+  position: absolute;
+  width:100%;
+  height:70px;
+  top:490px;
+  background-color: white;
+}
+
+.rt{
+  position: absolute;
+  width:100%;
+  font-family:monospace;
+  height:450px;
+  color:white;
+  top:850px;
+  background-image: url("/staticfiles/images/ff.png");
+}
+
+.ery{
+  position: absolute;
+  top:150px;
+  left:100px;
+}
+
+.ury{
+  position: absolute;
+  top:150px;
+  left:500px;
+}
+
+.vry{
+  position: absolute;
+  top:150px;
+  left:900px;
+}
+
+.ey{
+  border: 1px solid black;
+  background-color: white;
+  color:black;
+  padding-top: 15px;
+  text-align: center;
+  width: 180px;
+  height: 60px;
+  position: absolute;
+  left:-55px;
+  top: 70px;
+  cursor: pointer;
+}
+
+.uy{
+  border: 1px solid black;
+  background-color: white;
+  color:black;
+  padding-top: 15px;
+  text-align: center;
+  width: 180px;
+  height: 60px;
+  position: absolute;
+  left:-65px;
+  top: 70px;
+  cursor: pointer;
+}
+
+.uy:hover{
+  border: 1px solid rgb(211, 26, 26);
+  transition: ease-in 0.2s;
+}
+
+.vy{
+  border: 1px solid black;
+  background-color: white;
+  color:black;
+  padding-top: 15px;
+  text-align: center;
+  width: 180px;
+  height: 60px;
+  position: absolute;
+  left:-65px;
+  top: 70px;
+  cursor: pointer;
+}
+
+.vy:hover{
+  border: 1px solid rgb(232, 28, 232);
+  transition: ease-in 0.2s;
+}
+.results{
+  height:500px;
+  font-size: 40px;
+  top:470px;
+  position: absolute;
+  color:black
+}
+
+.telephoneIcon{
+  color: green;
+  transition: ease-in 0.2s;
+}
+
+</style>
+<body>
+  
+  <a href="#go_down"><button class="button button1">Make me fit!</button></a>
+
+</body>
+
+
+<div class="et">
+  <ul style="padding : 0 30px 0 150px;">
+    <li><svg style="width:35px;" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-battery-charging" viewBox="0 0 16 16">
+      <path d="M9.585 2.568a.5.5 0 0 1 .226.58L8.677 6.832h1.99a.5.5 0 0 1 .364.843l-5.334 5.667a.5.5 0 0 1-.842-.49L5.99 9.167H4a.5.5 0 0 1-.364-.843l5.333-5.667a.5.5 0 0 1 .616-.09z"/>
+      <path d="M2 4h4.332l-.94 1H2a1 1 0 0 0-1 1v4a1 1 0 0 0 1 1h2.38l-.308 1H2a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2"/>
+      <path d="M2 6h2.45L2.908 7.639A1.5 1.5 0 0 0 3.313 10H2zm8.595-2-.308 1H12a1 1 0 0 1 1 1v4a1 1 0 0 1-1 1H9.276l-.942 1H12a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2z"/>
+      <path d="M12 10h-1.783l1.542-1.639q.146-.156.241-.34zm0-3.354V6h-.646a1.5 1.5 0 0 1 .646.646M16 8a1.5 1.5 0 0 1-1.5 1.5v-3A1.5 1.5 0 0 1 16 8"/>
+    </svg>One on one training</li>
+    <li><svg style="width:40px;" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-geo-alt" viewBox="0 0 16 16">
+      <path d="M12.166 8.94c-.524 1.062-1.234 2.12-1.96 3.07A32 32 0 0 1 8 14.58a32 32 0 0 1-2.206-2.57c-.726-.95-1.436-2.008-1.96-3.07C3.304 7.867 3 6.862 3 6a5 5 0 0 1 10 0c0 .862-.305 1.867-.834 2.94M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10"/>
+      <path d="M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4m0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6"/>
+    </svg>Flexible Location</li>
+    <div style="position: absolute; bottom:27px; left:765.2px">
+      <svg  xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart-pulse-fill" viewBox="0 0 16 16">
+        <path d="M1.475 9C2.702 10.84 4.779 12.871 8 15c3.221-2.129 5.298-4.16 6.525-6H12a.5.5 0 0 1-.464-.314l-1.457-3.642-1.598 5.593a.5.5 0 0 1-.945.049L5.889 6.568l-1.473 2.21A.5.5 0 0 1 4 9z"/>
+        <path d="M.88 8C-2.427 1.68 4.41-2 7.823 1.143q.09.083.176.171a3 3 0 0 1 .176-.17C11.59-2 18.426 1.68 15.12 8h-2.783l-1.874-4.686a.5.5 0 0 0-.945.049L7.921 8.956 6.464 5.314a.5.5 0 0 0-.88-.091L3.732 8z"/>
+        </svg>&nbsp Healthy life</li>
+    </div>
+  </ul>
+</div>
+<div class="dd">
+
+</div>
+<div class="navy">
+    <div class="x">
+       Why Nisim Fit?
+    </div>
+
+    <div class="y">
+        We will work one on one and make you achieve the body you
+        always wanted
+    </div>
+</div>
+<div class="rt" id="go_down">
+  <div class="ery">
+     <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-telephone-fill telephoneIcon" viewBox="0 0 16 16">
+     <path fill-rule="evenodd" d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.68.68 0 0 0 .178.643l2.457 2.457a.68.68 0 0 0 .644.178l2.189-.547a1.75 1.75 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.6 18.6 0 0 1-7.01-4.42 18.6 18.6 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877z"/>
+     </svg>
+
+     <button><div class="ey">
+      <p>+972 058 732-3214</p>
+     </div>
+    </button>
+  </div>
+  <div class="ury">
+    <svg style="color:rgb(199, 32, 32);" xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-youtube" viewBox="0 0 16 16">
+      <path d="M8.051 1.999h.089c.822.003 4.987.033 6.11.335a2.01 2.01 0 0 1 1.415 1.42c.101.38.172.883.22 1.402l.01.104.022.26.008.104c.065.914.073 1.77.074 1.957v.075c-.001.194-.01 1.108-.082 2.06l-.008.105-.009.104c-.05.572-.124 1.14-.235 1.558a2.01 2.01 0 0 1-1.415 1.42c-1.16.312-5.569.334-6.18.335h-.142c-.309 0-1.587-.006-2.927-.052l-.17-.006-.087-.004-.171-.007-.171-.007c-1.11-.049-2.167-.128-2.654-.26a2.01 2.01 0 0 1-1.415-1.419c-.111-.417-.185-.986-.235-1.558L.09 9.82l-.008-.104A31 31 0 0 1 0 7.68v-.123c.002-.215.01-.958.064-1.778l.007-.103.003-.052.008-.104.022-.26.01-.104c.048-.519.119-1.023.22-1.402a2.01 2.01 0 0 1 1.415-1.42c.487-.13 1.544-.21 2.654-.26l.17-.007.172-.006.086-.003.171-.007A100 100 0 0 1 7.858 2zM6.4 5.209v4.818l4.157-2.408z"/>
+    </svg>
+
+    <a href="https://www.youtube.com/@nedimmanoahfitness4527"><button class="button1 uy">
+      <p>Youtube</p>
+    </button></a>
+  </div>
+  <div class="vry">
+    <svg style="color:rgb(172, 35, 172)" xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-instagram" viewBox="0 0 16 16">
+      <path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.9 3.9 0 0 0-1.417.923A3.9 3.9 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.9 3.9 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.9 3.9 0 0 0-.923-1.417A3.9 3.9 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599s.453.546.598.92c.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.5 2.5 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.5 2.5 0 0 1-.92-.598 2.5 2.5 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233s.008-2.388.046-3.231c.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92s.546-.453.92-.598c.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92m-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217m0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334"/>
+    </svg>
+    <a href="https://www.instagram.com/nedim_manoah_fitness/"><button class="button1 vy">
+      <p>Instagram</p>
+     </button></a>
+</div>
+<div class="results">
+  <p>Client results:</p>
+  <img style="width: 500px; height: 350px;" src="/staticfiles/images/t2 (1).jpg">
+  <img style="width: 550px; height: 350px;" src="/staticfiles/images/t2 (2).jpg">
+</div>
+</html>
+
