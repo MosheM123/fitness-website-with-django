@@ -11,6 +11,7 @@ contourpy==1.2.0
 cryptography==42.0.0
 cycler==0.12.1
 defusedxml==0.7.1
+dependencies==7.7.0
 distlib==0.3.8
 Django==5.0.1
 django-allauth==0.60.1
