@@ -29,13 +29,14 @@ jsonschema-specifications==2023.12.1
 kiwisolver==1.4.5
 manimlib==0.2.0
 matplotlib==3.8.2
+npm==0.1.1
 numpy==1.26.2
 oauthlib==3.2.2
 opencv-python==4.9.0.80
+optional-django==0.1.0
 packaging==23.2
 pandas==2.1.4
 pillow==10.2.0
-pip==23.3.2
 pipenv==2023.11.17
 platformdirs==4.1.0
 progressbar==2.5
@@ -67,3 +68,4 @@ urllib3==2.1.0
 virtualenv==20.25.0
 whitenoise==6.6.0
 XlsxWriter==3.1.9
+
