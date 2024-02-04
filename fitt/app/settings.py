@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
+    'render.apps.RenderConfig',
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'startit',
