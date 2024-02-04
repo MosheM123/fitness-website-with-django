@@ -7,7 +7,7 @@ charset-normalizer==3.3.2
 cmdstanpy==1.2.0
 colorama==0.4.6
 colour==0.1.5
-contourpy==1.2.0
+
 cryptography==42.0.0
 cycler==0.12.1
 defusedxml==0.7.1
