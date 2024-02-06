@@ -40,6 +40,7 @@ SECURE_SSL_REDIRECT = True
 # Application definition
 
 INSTALLED_APPS = [
+    'fitt.apps.FittConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
